@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build with Maven    
-        run:  run: |
-          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/MallikApplabs/TestWorkFlow/dispatches --data '{"event_type":"build_application"}'
+        run:  run:|
+          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept:application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/MallikApplabs/TestWorkFlow/dispatches --data '{"event_type":"build_application"}'
 
