@@ -1,4 +1,4 @@
-name: Java CI New
+name: Java CI New MainApp
 on: workflow_dispatch
 jobs:
   build:
