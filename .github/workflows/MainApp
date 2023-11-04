@@ -3,6 +3,9 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix: ['Mallikapplabs/TestWorkFlow']
+    timeout-minutes: 5
     steps:
       - name: Build with Maven    
         run:  run: |
