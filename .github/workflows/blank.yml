@@ -1,4 +1,4 @@
-name: Java CI
+name: Java CI New
 on: repository_dispatch
 jobs:
   build:
