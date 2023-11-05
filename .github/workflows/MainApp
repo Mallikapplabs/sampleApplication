@@ -1,12 +1,27 @@
-name: Java CI New MainApp
-on: workflow_dispatch
+name: Maven CI/CD
+
+on:
+ push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
-  build:
+  build_and_test:
+
     runs-on: ubuntu-latest
     strategy:
       matrix: ['Mallikapplabs/TestWorkFlow']
-    timeout-minutes: 5
+      timeout-minutes: 5
+
     steps:
-      - name: Build with Maven    
-        run:  run: |
-          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/MallikApplabs/TestWorkFlow/dispatches --data '{"event_type":"build_application" , "client_payload": { "foo": "bar" }}'
+    - uses: actions/checkout@v2
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+
+    - name: Build project with Maven
+      run: mvn -B package --file pom.xml
+    - name: Run the LLM-CMS Sanity Test
+      run: curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/MallikApplabs/TestWorkFlow/dispatches --data '{"event_type":"build_application" , "client_payload": { "foo": "bar" }}'
