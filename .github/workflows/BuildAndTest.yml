@@ -11,8 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      matrix: ['Mallikapplabs/TestWorkFlow']
-      timeout-minutes: 5
+      matrix:
+       repo: ['Mallikapplabs/TestWorkFlow'] 
+    timeout-minutes: 5
 
     steps:
     - uses: actions/checkout@v2
