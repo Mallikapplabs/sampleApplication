@@ -23,7 +23,7 @@ class Runner2 implements Runnable {
     public void run() {
         Integer i = 0;
         for ( i=0; i<10; i++ ){
-            System.out.println("Runner -2 : The interator value is " + i);
+            System.out.println("Runner - 2 : The interator value is " + i);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
