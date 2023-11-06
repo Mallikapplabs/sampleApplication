@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FilterExample {
     public static void main(String[] args) {
-        List<String> names = Arrays.asList("Apple", "Ball", "cat","Dog" , "cow");
+        List<String> names = Arrays.asList("Apple", "Ball", "cat","Dog" , "cow", "goat");
 
         names.stream().filter(FilterExample::IsnotApple)
                 .forEach(System.out::println);
